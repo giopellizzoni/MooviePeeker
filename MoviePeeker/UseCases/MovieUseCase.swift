@@ -23,9 +23,9 @@ protocol MovieDetailUseCaseProtocol: MoviePosterCaseProtocol  {
 // MARK: - Movie Use Case
 class MovieUseCase {
     
-    private let service: HTTPClient!
+    private let service: NetworkClient!
     
-    init(service: HTTPClient!) {
+    init(service: NetworkClient!) {
         self.service = service
     }
 }

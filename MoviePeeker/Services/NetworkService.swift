@@ -8,11 +8,12 @@
 import Foundation
 
 
-enum NetworkError: Error {
+public enum NetworkError: Error {
     case invalidRequest
+    case networkError
 }
 
-class NetworkService: HTTPClient {
+class NetworkService: NetworkClient {
     
     private let session: URLSession!
     
@@ -20,7 +21,7 @@ class NetworkService: HTTPClient {
         self.session = session
     }
     
-    func load(from request: URLRequest?) async throws -> AsyncResponse {
+    func load(from request: URLRequest?) async throws -> AsyncResult {
         guard let request = request else { throw NetworkError.invalidRequest }
         return try await session.data(for: request)
     }
