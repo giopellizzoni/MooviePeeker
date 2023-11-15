@@ -7,10 +7,15 @@
 
 import Foundation
 
+enum ImageSize: String {
+    case small
+    case medium
+}
+
 enum MovieRequest {
     case loadMovies
     case movieDetails(Int)
-    case downloadPoster(String)
+    case downloadPoster(String, ImageSize)
     
     var method: HTTPMethod {
         .GET
@@ -22,8 +27,8 @@ enum MovieRequest {
             return Constants.baseURL.appending("/discover/movie")
         case .movieDetails(let id):
             return Constants.baseURL.appending("/movie/\(id)")
-        case .downloadPoster(let poster):
-            return Constants.baseDownloadPoster.appending("/w154/\(poster)")
+        case .downloadPoster(let poster, let imageSize):
+            return Constants.baseDownloadPoster.appending("/\(getImageSize(imageSize))/\(poster)")
         }
     }
     
@@ -43,5 +48,16 @@ extension MovieRequest {
         urlRequest.httpMethod = method.rawValue
         
         return urlRequest
+    }
+}
+
+extension MovieRequest {
+    private func getImageSize(_ imageSize: ImageSize) -> String {
+        switch imageSize {
+        case .small:
+            return "w154"
+        case .medium:
+            return "w342"
+        }
     }
 }

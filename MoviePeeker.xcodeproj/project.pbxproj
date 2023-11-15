@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		025CCAE82B04E57C0054BBB4 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025CCAE72B04E57C0054BBB4 /* Int+Extensions.swift */; };
+		025CCAF02B04F2910054BBB4 /* Mulish-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 025CCAEC2B04F2290054BBB4 /* Mulish-Regular.ttf */; };
+		025CCAF12B04F2910054BBB4 /* Montserrat-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 025CCAED2B04F2720054BBB4 /* Montserrat-BoldItalic.ttf */; };
+		025CCAF22B04F2910054BBB4 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 025CCAEE2B04F2720054BBB4 /* Montserrat-Bold.ttf */; };
+		025CCAF32B04F2910054BBB4 /* Mulish-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 025CCAEB2B04F2290054BBB4 /* Mulish-MediumItalic.ttf */; };
+		025CCAF42B04F2910054BBB4 /* HindGuntur-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 025CCAEF2B04F28E0054BBB4 /* HindGuntur-Medium.ttf */; };
+		025CCAF62B04F37E0054BBB4 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025CCAF52B04F37E0054BBB4 /* UIFont+Extensions.swift */; };
+		025CCAF82B04F53D0054BBB4 /* Mulish-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 025CCAF72B04F53D0054BBB4 /* Mulish-Medium.ttf */; };
+		025CCAFB2B04FBA60054BBB4 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025CCAFA2B04FBA60054BBB4 /* UILabel+Extension.swift */; };
 		029B10562B036FC300AA813D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029B10552B036FC300AA813D /* AppDelegate.swift */; };
 		029B10582B036FC300AA813D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029B10572B036FC300AA813D /* SceneDelegate.swift */; };
 		029B105F2B036FC600AA813D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029B105E2B036FC600AA813D /* Assets.xcassets */; };
@@ -41,6 +49,15 @@
 
 /* Begin PBXFileReference section */
 		025CCAE72B04E57C0054BBB4 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		025CCAEB2B04F2290054BBB4 /* Mulish-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-MediumItalic.ttf"; sourceTree = "<group>"; };
+		025CCAEC2B04F2290054BBB4 /* Mulish-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Regular.ttf"; sourceTree = "<group>"; };
+		025CCAED2B04F2720054BBB4 /* Montserrat-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.ttf"; sourceTree = "<group>"; };
+		025CCAEE2B04F2720054BBB4 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		025CCAEF2B04F28E0054BBB4 /* HindGuntur-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HindGuntur-Medium.ttf"; sourceTree = "<group>"; };
+		025CCAF52B04F37E0054BBB4 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		025CCAF72B04F53D0054BBB4 /* Mulish-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Medium.ttf"; sourceTree = "<group>"; };
+		025CCAF92B04F5620054BBB4 /* Mulish-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Italic.ttf"; sourceTree = "<group>"; };
+		025CCAFA2B04FBA60054BBB4 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		029B10522B036FC300AA813D /* MoviePeeker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviePeeker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029B10552B036FC300AA813D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		029B10572B036FC300AA813D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +102,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		025CCAE92B04F1D80054BBB4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				025CCAEA2B04F1E10054BBB4 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		025CCAEA2B04F1E10054BBB4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				025CCAEF2B04F28E0054BBB4 /* HindGuntur-Medium.ttf */,
+				025CCAEE2B04F2720054BBB4 /* Montserrat-Bold.ttf */,
+				025CCAED2B04F2720054BBB4 /* Montserrat-BoldItalic.ttf */,
+				025CCAEB2B04F2290054BBB4 /* Mulish-MediumItalic.ttf */,
+				025CCAF72B04F53D0054BBB4 /* Mulish-Medium.ttf */,
+				025CCAEC2B04F2290054BBB4 /* Mulish-Regular.ttf */,
+				025CCAF92B04F5620054BBB4 /* Mulish-Italic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		029B10492B036FC300AA813D = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +143,7 @@
 		029B10542B036FC300AA813D /* MoviePeeker */ = {
 			isa = PBXGroup;
 			children = (
+				025CCAE92B04F1D80054BBB4 /* Resources */,
 				029B106C2B03726700AA813D /* Coordinator */,
 				029B10882B03818700AA813D /* Utils */,
 				029B10852B037F1600AA813D /* UseCases */,
@@ -228,6 +268,8 @@
 				029B10982B04145F00AA813D /* String+Extensions.swift */,
 				029B109A2B0416C800AA813D /* UIView+Extensions.swift */,
 				025CCAE72B04E57C0054BBB4 /* Int+Extensions.swift */,
+				025CCAF52B04F37E0054BBB4 /* UIFont+Extensions.swift */,
+				025CCAFA2B04FBA60054BBB4 /* UILabel+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -325,8 +367,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				025CCAF22B04F2910054BBB4 /* Montserrat-Bold.ttf in Resources */,
+				025CCAF32B04F2910054BBB4 /* Mulish-MediumItalic.ttf in Resources */,
+				025CCAF12B04F2910054BBB4 /* Montserrat-BoldItalic.ttf in Resources */,
+				025CCAF02B04F2910054BBB4 /* Mulish-Regular.ttf in Resources */,
 				029B10622B036FC600AA813D /* LaunchScreen.storyboard in Resources */,
+				025CCAF82B04F53D0054BBB4 /* Mulish-Medium.ttf in Resources */,
 				029B105F2B036FC600AA813D /* Assets.xcassets in Resources */,
+				025CCAF42B04F2910054BBB4 /* HindGuntur-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +387,7 @@
 			files = (
 				029B10842B037BB400AA813D /* NetworkService.swift in Sources */,
 				029B106E2B03727700AA813D /* Coordinator.swift in Sources */,
+				025CCAFB2B04FBA60054BBB4 /* UILabel+Extension.swift in Sources */,
 				02DC109B2B044F0000AB1B9E /* MovieDetailsView.swift in Sources */,
 				029B10702B0372AE00AA813D /* MovieListCoordinator.swift in Sources */,
 				02DC10A22B04CBB300AB1B9E /* MovieInfoView.swift in Sources */,
@@ -353,6 +402,7 @@
 				029B108A2B03819700AA813D /* Constants.swift in Sources */,
 				029B10802B037AC300AA813D /* HTTPClient.swift in Sources */,
 				02DC10962B04285700AB1B9E /* MovieViewModel.swift in Sources */,
+				025CCAF62B04F37E0054BBB4 /* UIFont+Extensions.swift in Sources */,
 				029B10792B0375CA00AA813D /* MovieListView.swift in Sources */,
 				02DC109F2B04B09600AB1B9E /* MovieDetail.swift in Sources */,
 				02DC10A42B04D00900AB1B9E /* DetailsViewModel.swift in Sources */,
@@ -515,6 +565,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -542,6 +593,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

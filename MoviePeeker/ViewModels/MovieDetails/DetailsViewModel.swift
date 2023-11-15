@@ -9,7 +9,7 @@ import UIKit
 
 struct DetailsViewModel {
     let budget: Int
-    let homepage: String
+    let homepage: String?
     let id: Int
     let overview: String
     let poster: UIImage?

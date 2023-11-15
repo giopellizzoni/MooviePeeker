@@ -30,7 +30,7 @@ class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
     }
     
     private func mapMovieDetails(from movie: MovieDetail) async throws -> DetailsViewModel {
-        let poster = try await useCase.downloadPoster(from: movie.poster)
+        let poster = try await useCase.downloadPoster(from: movie.poster, imageSize: .medium)
         return DetailsViewModel.build(movieDetails: movie, poster: poster)
     }
     

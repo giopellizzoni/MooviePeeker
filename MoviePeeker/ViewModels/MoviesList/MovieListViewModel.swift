@@ -49,7 +49,7 @@ extension MovieListViewModel {
     }
     
     private func getMovieViewModel(from movie: Movie) async throws -> MovieViewModel {
-        let poster = try await self.movieUseCase.downloadPoster(from: movie.posterPath)
+        let poster = try await self.movieUseCase.downloadPoster(from: movie.posterPath, imageSize: .small)
         return MovieViewModel.build(from: movie, poster: poster)
     }
 }

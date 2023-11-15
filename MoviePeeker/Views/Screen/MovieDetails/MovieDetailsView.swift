@@ -15,13 +15,13 @@ class MovieDetailsView: UIView {
         scrollView.showsHorizontalScrollIndicator = false
     }
     
-    private lazy var containerView: UIView = makeUIElement { view in }
+    private lazy var containerView: UIView = makeUIElement { _ in }
     
     private lazy var posterImageView: UIImageView = makeUIElement { imageView in
         imageView.contentMode = .scaleAspectFit
     }
     
-    private lazy var infoView: MovieInfoView = makeUIElement { view in }
+    private lazy var infoView: MovieInfoView = makeUIElement { _ in }
     
     
     // MARK: - Initializers
@@ -89,9 +89,10 @@ extension MovieDetailsView {
             infoView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
             infoView.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 10),
             infoView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
-            infoView.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -40)
+            
         ])
     }
+    
 }
 
 extension MovieDetailsView {

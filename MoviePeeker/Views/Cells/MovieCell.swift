@@ -9,7 +9,6 @@ import UIKit
 
 class MovieCell: UITableViewCell {
     static let reuseId = "MovieCell"
-    var didSelect: ((MovieViewModel) -> Void)?
     
     // MARK: - UI Properties
     private lazy var containerView: UIView = makeUIElement { view in
@@ -26,7 +25,7 @@ class MovieCell: UITableViewCell {
     
     private lazy var titleLabel: UILabel = makeUIElement { label in
         label.textColor = .black
-        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.font = .montserratBold(ofSize: 20)
         label.numberOfLines = 3
         label.lineBreakMode = .byTruncatingTail
         label.text = "Movie Title"
@@ -34,12 +33,12 @@ class MovieCell: UITableViewCell {
     
     private lazy var releaseDate: UILabel = makeUIElement { label in
         label.text = "Release date: 22/01/2023"
-        label.font = .systemFont(ofSize: 14)
+        label.font = .hindGunturMedium(ofSize: 14)
     }
     
     private lazy var votesLabel: UILabel = makeUIElement { label in
         label.text = "Rating: 0.0"
-        label.font = .systemFont(ofSize: 14)
+        label.font = .hindGunturMedium(ofSize: 14)
     }
     
     private lazy var stackView: UIStackView = makeUIElement { stackView in
@@ -49,7 +48,7 @@ class MovieCell: UITableViewCell {
     
     private lazy var overviewLabel: UILabel = makeUIElement { label in
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 10)
+        label.font = .mulish(ofSize: 10, type: .mediumItalic)
         label.sizeToFit()
     }
     
@@ -130,8 +129,6 @@ extension MovieCell {
         votesLabel.text = "Rating: \(movie.rating)"
         overviewLabel.text = movie.overview
         posterImageView.image = movie.poster
-        
-        didSelect?(movie)
     }
 }
 

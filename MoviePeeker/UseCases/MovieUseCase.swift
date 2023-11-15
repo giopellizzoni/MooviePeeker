@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MoviePosterCaseProtocol: AnyObject {
-    func downloadPoster(from poster: String) async throws -> UIImage?
+    func downloadPoster(from poster: String, imageSize: ImageSize) async throws -> UIImage?
 }
 
 protocol MovieLoadUseCaseProtocol: MoviePosterCaseProtocol {
@@ -48,8 +48,8 @@ extension MovieUseCase: MovieDetailUseCaseProtocol {
 
 // MARK: - Download Poster
 extension MovieUseCase {
-    func downloadPoster(from poster: String) async throws -> UIImage? {
-        let response = try await service.load(from: MovieRequest.downloadPoster(poster).asURLRequest())
+    func downloadPoster(from poster: String, imageSize: ImageSize) async throws -> UIImage? {
+        let response = try await service.load(from: MovieRequest.downloadPoster(poster, imageSize).asURLRequest())
         return UIImage(data: response.data)
     }
 }
