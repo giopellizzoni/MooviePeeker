@@ -21,11 +21,12 @@ class MovieListView: UIView {
         let tableView = UITableView(frame: .zero)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
-        tableView.separatorColor = .clear
+        tableView.separatorStyle = .none
         tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.reuseId)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.allowsSelection = false
         return tableView
     }()
     
@@ -68,8 +69,8 @@ extension MovieListView {
     func configureTableView() {
         addSubview(tableView)
         NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
         ])
@@ -82,16 +83,14 @@ extension MovieListView : UITableViewDelegate {
 
 extension MovieListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let moviesCount = viewModel.movies?.results.count else { return 0 }
-        return moviesCount
+        return viewModel.movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.reuseId) as? MovieCell,
-              let movie = viewModel.movies?.results[indexPath.row] else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.reuseId) as? MovieCell else {
             return UITableViewCell()
         }
-        
+        let movie = viewModel.movies[indexPath.row]
         cell.setupCell(movie)
         return cell
     }

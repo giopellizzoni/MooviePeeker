@@ -10,37 +10,32 @@ import Foundation
 enum MovieRequest {
     case loadMovies
     case movieDetails(Int)
-    case downloadPoster
+    case downloadPoster(String)
     
     var method: HTTPMethod {
         .GET
     }
     
-    var path: String {
+    var endpoint: String {
         switch self {
         case .loadMovies:
-            return "/discover/movie"
+            return Constants.baseURL.appending("/discover/movie")
         case .movieDetails(let id):
-            return "movie/\(id)"
-        case .downloadPoster:
-            return ""
+            return Constants.baseURL.appending("/movie/\(id)")
+        case .downloadPoster(let poster):
+            return Constants.baseDownloadPoster.appending("/w154/\(poster)")
         }
     }
     
     var parameters: [URLQueryItem] {
-        switch self {
-        case .loadMovies:
-            return [URLQueryItem(name: "api_key", value: Constants.apiKey)]
-        default:
-            return []
-        }
+        [URLQueryItem(name: "api_key", value: Constants.apiKey)]
     }
     
 }
 
 extension MovieRequest {
     func asURLRequest() -> URLRequest? {
-        guard let url = URL(string: Constants.baseURL.appending(path))?.appending(queryItems: parameters) else {
+        guard let url = URL(string: endpoint)?.appending(queryItems: parameters) else {
             return nil
         }
         

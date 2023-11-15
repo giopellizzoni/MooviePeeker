@@ -26,6 +26,9 @@
 		029B10902B03865700AA813D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029B108F2B03865700AA813D /* HTTPMethod.swift */; };
 		029B10922B03991D00AA813D /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029B10912B03991D00AA813D /* TitleLabel.swift */; };
 		029B10952B03A61D00AA813D /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029B10942B03A61D00AA813D /* GlobalFunctions.swift */; };
+		029B10992B04145F00AA813D /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029B10982B04145F00AA813D /* String+Extensions.swift */; };
+		029B109B2B0416C800AA813D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029B109A2B0416C800AA813D /* UIView+Extensions.swift */; };
+		02DC10962B04285700AB1B9E /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC10952B04285700AB1B9E /* MovieViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		029B108F2B03865700AA813D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		029B10912B03991D00AA813D /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		029B10942B03A61D00AA813D /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
+		029B10982B04145F00AA813D /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		029B109A2B0416C800AA813D /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		02DC10952B04285700AB1B9E /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 		029B106A2B03700800AA813D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				029B10972B04144600AA813D /* Extensions */,
 				029B107A2B03774500AA813D /* Cells */,
 				029B107B2B03775800AA813D /* Screen */,
 				029B10932B03998100AA813D /* Labels */,
@@ -120,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				029B10752B0374AC00AA813D /* MovieListViewModel.swift */,
+				02DC10952B04285700AB1B9E /* MovieViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -192,6 +200,15 @@
 				029B10912B03991D00AA813D /* TitleLabel.swift */,
 			);
 			path = Labels;
+			sourceTree = "<group>";
+		};
+		029B10972B04144600AA813D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				029B10982B04145F00AA813D /* String+Extensions.swift */,
+				029B109A2B0416C800AA813D /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,13 +285,16 @@
 				029B106E2B03727700AA813D /* Coordinator.swift in Sources */,
 				029B10702B0372AE00AA813D /* MovieListCoordinator.swift in Sources */,
 				029B107D2B0377C300AA813D /* MovieCell.swift in Sources */,
+				029B10992B04145F00AA813D /* String+Extensions.swift in Sources */,
 				029B10722B03730600AA813D /* Movie.swift in Sources */,
 				029B108E2B03849E00AA813D /* MovieRequest.swift in Sources */,
 				029B10762B0374AC00AA813D /* MovieListViewModel.swift in Sources */,
 				029B10742B03748700AA813D /* MovieListViewController.swift in Sources */,
 				029B108A2B03819700AA813D /* Constants.swift in Sources */,
 				029B10802B037AC300AA813D /* HTTPClient.swift in Sources */,
+				02DC10962B04285700AB1B9E /* MovieViewModel.swift in Sources */,
 				029B10792B0375CA00AA813D /* MovieListView.swift in Sources */,
+				029B109B2B0416C800AA813D /* UIView+Extensions.swift in Sources */,
 				029B10902B03865700AA813D /* HTTPMethod.swift in Sources */,
 				029B10562B036FC300AA813D /* AppDelegate.swift in Sources */,
 				029B10922B03991D00AA813D /* TitleLabel.swift in Sources */,

@@ -27,7 +27,7 @@ struct Movie: Decodable {
     let posterPath: String
     let releaseDate: String
     let title: String
-    let voteAverage: Double
+    let rating: Double
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -35,6 +35,6 @@ struct Movie: Decodable {
         case posterPath = "poster_path"
         case releaseDate = "release_date"
         case title
-        case voteAverage = "vote_average"
+        case rating = "vote_average"
     }
 }

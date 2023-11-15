@@ -5,11 +5,13 @@
 //  Created by Giovanni  Pellizzoni on 14/11/23.
 //
 
-import Foundation
+import UIKit
 
 protocol MovieUseCaseProtocol: AnyObject {
     func loadMovies() async throws -> Movies
     func loadMovieDetails(for id: Int) async throws -> Movie
+    func downloadPoster(from poster: String) async throws -> UIImage?
+    
 }
 
 class MovieUseCase: MovieUseCaseProtocol {
@@ -37,5 +39,12 @@ extension MovieUseCase {
     func loadMovieDetails(for id: Int) async throws -> Movie {
         let response = try await service.load(from: MovieRequest.movieDetails(id).asURLRequest())
         return try JSONDecoder().decode(Movie.self, from: response.data)
+    }
+}
+
+extension MovieUseCase {
+    func downloadPoster(from poster: String) async throws -> UIImage? {
+        let response = try await service.load(from: MovieRequest.downloadPoster(poster).asURLRequest())
+        return UIImage(data: response.data)
     }
 }

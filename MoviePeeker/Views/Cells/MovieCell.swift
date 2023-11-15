@@ -11,44 +11,43 @@ class MovieCell: UITableViewCell {
     static let reuseId = "MovieCell"
     
     private lazy var containerView: UIView = makeUIElement { view in
-        contentView.backgroundColor = .white
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
         view.layer.cornerRadius = 10
-        view.backgroundColor = .lightGray
     }
     
-    private lazy var posterImageView = makeUIElement { imageView in
-        imageView.backgroundColor = .blue
+    private lazy var posterImageView: UIImageView = makeUIElement { imageView in
         imageView.layer.cornerRadius = 10
         imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-        imageView.contentMode = .scaleAspectFit
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .redraw
     }
     
     private lazy var titleLabel: UILabel = makeUIElement { label in
         label.textColor = .black
-        label.font = .systemFont(ofSize: 20, weight: .light)
+        label.font = .systemFont(ofSize: 20, weight: .bold)
         label.numberOfLines = 3
         label.lineBreakMode = .byTruncatingTail
         label.text = "Movie Title"
     }
     
     private lazy var releaseDate: UILabel = makeUIElement { label in
-        label.text = "Release date: 22/22/2222"
+        label.text = "Release date: 22/01/2023"
+        label.font = .systemFont(ofSize: 14)
     }
     
     private lazy var votesLabel: UILabel = makeUIElement { label in
         label.text = "Rating: 0.0"
+        label.font = .systemFont(ofSize: 14)
     }
     
     private lazy var stackView: UIStackView = makeUIElement { stackView in
         stackView.axis = .vertical
+        stackView.spacing = 4
     }
     
     private lazy var overviewLabel: UILabel = makeUIElement { label in
-        label.text = "Recently fired and desperate for work, a troubled young man named Mike agrees to take a position as a night security guard at an abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon discovers that nothing at Freddy's is what it seems."
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 10)
-        label.backgroundColor = .white
         label.sizeToFit()
     }
     
@@ -75,21 +74,20 @@ extension MovieCell {
     private func configureContainer() {
         addSubview(containerView)
         NSLayoutConstraint.activate([
-            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            containerView.topAnchor.constraint(equalTo: topAnchor, constant: 2),
-            containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2)
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
+            containerView.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+            containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
         ])
     }
     
     private func configureImageView() {
         containerView.addSubview(posterImageView)
         NSLayoutConstraint.activate([
-            posterImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            posterImageView.topAnchor.constraint(equalTo: topAnchor, constant: 2),
-            posterImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
-            posterImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2)
-            
+            posterImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            posterImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            posterImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            posterImageView.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.4)
         ])
     }
     
@@ -100,9 +98,9 @@ extension MovieCell {
         
         containerView.addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: posterImageView.trailingAnchor, constant: 8),
-            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 2),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2)
+            stackView.leadingAnchor.constraint(equalTo: posterImageView.trailingAnchor, constant: 4),
+            stackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 2),
+            stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -2)
         ])
     }
     
@@ -110,21 +108,26 @@ extension MovieCell {
         containerView.addSubview(overviewLabel)
         
         NSLayoutConstraint.activate([
-            overviewLabel.leadingAnchor.constraint(equalTo: posterImageView.trailingAnchor, constant: 8),
-            overviewLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 4),
-            overviewLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
-            overviewLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -4)
+            overviewLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            overviewLabel.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 8),
+            overviewLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            overviewLabel.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -4)
         ])
         
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        containerView.dropShadow()
     }
 }
 
 extension MovieCell {
-    func setupCell(_ movie: Movie) {
+    func setupCell(_ movie: MovieViewModel) {
         titleLabel.text = movie.title
-        releaseDate.text = movie.releaseDate
-        votesLabel.text = "\(movie.voteAverage)"
+        releaseDate.text = "Release date: \(movie.releaseDate.toFormat(from: "yyyy-mm-dd", to: "dd/mm/yyyy"))"
+        votesLabel.text = "Rating: \(movie.rating)"
         overviewLabel.text = movie.overview
+        posterImageView.image = movie.poster
     }
 }
 
