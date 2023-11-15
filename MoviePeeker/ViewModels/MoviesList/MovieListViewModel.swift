@@ -11,22 +11,32 @@ protocol MovieListViewModelProtocol: AnyObject {
     var movies: [MovieViewModel] { get set }
     
     func loadMovies() async throws
+    func navigateToSelected(movie: MovieViewModel)
 }
+
 
 class MovieListViewModel: MovieListViewModelProtocol {
     var movies: [MovieViewModel] = []
     
-    private let movieUseCase: MovieUseCaseProtocol!
+    private let movieUseCase: MovieLoadUseCaseProtocol!
+    private let coordinator: MovieListCoordinatorProtocol!
     
-    init(movieUseCase: MovieUseCaseProtocol!) {
+    
+    init(movieUseCase: MovieLoadUseCaseProtocol!, coordinator: MovieListCoordinatorProtocol!) {
         self.movieUseCase = movieUseCase
+        self.coordinator = coordinator
     }
     
+}
+
+extension MovieListViewModel {
     func loadMovies() async throws {
         let moviesList = try await movieUseCase.loadMovies()
         self.movies.append(contentsOf: try await mapToMovies(from: moviesList))
     }
-    
+}
+
+extension MovieListViewModel {
     private func mapToMovies(from movies: Movies) async throws -> [MovieViewModel] {
         return try await withThrowingTaskGroup(of: MovieViewModel.self) { group in
                 for movie in movies.results {
@@ -42,5 +52,10 @@ class MovieListViewModel: MovieListViewModelProtocol {
         let poster = try await self.movieUseCase.downloadPoster(from: movie.posterPath)
         return MovieViewModel.build(from: movie, poster: poster)
     }
-    
+}
+
+extension MovieListViewModel {
+    func navigateToSelected(movie: MovieViewModel) {
+        coordinator.selectMovie(movie)
+    }
 }

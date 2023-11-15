@@ -15,7 +15,7 @@ struct MovieViewModel {
     let title: String
     let rating: Double
     
-    static func build(from movie: Movie, poster: UIImage?) -> MovieViewModel {
+    static func build(from movie: Movie, poster: UIImage?) -> Self {
         return MovieViewModel(id: movie.id,
                               overview: movie.overview,
                               poster: poster,

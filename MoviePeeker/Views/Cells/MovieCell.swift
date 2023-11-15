@@ -9,7 +9,9 @@ import UIKit
 
 class MovieCell: UITableViewCell {
     static let reuseId = "MovieCell"
+    var didSelect: ((MovieViewModel) -> Void)?
     
+    // MARK: - UI Properties
     private lazy var containerView: UIView = makeUIElement { view in
         view.backgroundColor = .white
         view.layer.cornerRadius = 10
@@ -128,10 +130,14 @@ extension MovieCell {
         votesLabel.text = "Rating: \(movie.rating)"
         overviewLabel.text = movie.overview
         posterImageView.image = movie.poster
+        
+        didSelect?(movie)
     }
 }
 
 
+
+// MARK: - Previewers
 import SwiftUI
 
 

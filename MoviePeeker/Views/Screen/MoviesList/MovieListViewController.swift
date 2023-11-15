@@ -12,7 +12,7 @@ class MovieListViewController: UIViewController {
     private var moveListView: MovieListView!
     private var viewModel: MovieListViewModelProtocol!
     
-    init(viewModel: MovieListViewModelProtocol!) {
+    init(viewModel: MovieListViewModelProtocol) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = viewModel
     }

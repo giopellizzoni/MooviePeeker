@@ -26,7 +26,6 @@ class MovieListView: UIView {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.allowsSelection = false
         return tableView
     }()
     
@@ -78,7 +77,10 @@ extension MovieListView {
 }
 
 extension MovieListView : UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = viewModel.movies[indexPath.row]
+        viewModel.navigateToSelected(movie: movie)
+    }
 }
 
 extension MovieListView: UITableViewDataSource {
@@ -92,6 +94,7 @@ extension MovieListView: UITableViewDataSource {
         }
         let movie = viewModel.movies[indexPath.row]
         cell.setupCell(movie)
+        
         return cell
     }
 }
